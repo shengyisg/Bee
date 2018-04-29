@@ -1,7 +1,7 @@
 package com.bee.repository;
 
-import com.bee.entity.BeeUser;
 import com.bee.entity.PersistentToken;
+import com.bee.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;
@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface PersistentTokenRepository extends JpaRepository<PersistentToken, String> {
 
-    List<PersistentToken> findByUser(BeeUser user);
+    List<PersistentToken> findByUser(User user);
 
     List<PersistentToken> findByTokenDateBefore(LocalDate localDate);
 
