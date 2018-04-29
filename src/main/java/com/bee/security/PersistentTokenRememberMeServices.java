@@ -1,8 +1,8 @@
 package com.bee.security;
 
 import com.bee.entity.PersistentToken;
-import com.bee.repository.BeeUserRepository;
 import com.bee.repository.PersistentTokenRepository;
+import com.bee.repository.UserRepository;
 import com.bee.service.util.RandomUtil;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
@@ -13,7 +13,10 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.web.authentication.rememberme.*;
+import org.springframework.security.web.authentication.rememberme.AbstractRememberMeServices;
+import org.springframework.security.web.authentication.rememberme.CookieTheftException;
+import org.springframework.security.web.authentication.rememberme.InvalidCookieException;
+import org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -71,11 +74,11 @@ public class PersistentTokenRememberMeServices extends
 
     private final PersistentTokenRepository persistentTokenRepository;
 
-    private final BeeUserRepository userRepository;
+    private final UserRepository userRepository;
 
     public PersistentTokenRememberMeServices(JHipsterProperties jHipsterProperties,
                                              org.springframework.security.core.userdetails.UserDetailsService userDetailsService,
-                                             PersistentTokenRepository persistentTokenRepository, BeeUserRepository userRepository) {
+                                             PersistentTokenRepository persistentTokenRepository, UserRepository userRepository) {
 
         super(jHipsterProperties.getSecurity().getRememberMe().getKey(), userDetailsService);
         this.persistentTokenRepository = persistentTokenRepository;
