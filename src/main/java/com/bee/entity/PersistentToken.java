@@ -44,7 +44,7 @@ public class PersistentToken implements Serializable {
 
     @JsonIgnore
     @ManyToOne
-    private BeeUser user;
+    private User user;
 
     public String getSeries() {
         return series;
@@ -90,11 +90,11 @@ public class PersistentToken implements Serializable {
         }
     }
 
-    public BeeUser getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(BeeUser user) {
+    public void setUser(User user) {
         this.user = user;
     }
 

@@ -32,7 +32,7 @@ public class BeeUserLoginHistory implements Serializable {
     private String remark;
 
     @ManyToOne
-    private BeeUser beeUser;
+    private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -95,17 +95,17 @@ public class BeeUserLoginHistory implements Serializable {
         this.remark = remark;
     }
 
-    public BeeUser getBeeUser() {
-        return beeUser;
+    public User getBeeUser() {
+        return user;
     }
 
-    public BeeUserLoginHistory beeUser(BeeUser beeUser) {
-        this.beeUser = beeUser;
+    public BeeUserLoginHistory beeUser(User beeUser) {
+        this.user = beeUser;
         return this;
     }
 
-    public void setBeeUser(BeeUser beeUser) {
-        this.beeUser = beeUser;
+    public void setBeeUser(User user) {
+        this.user = user;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
